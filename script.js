@@ -15,6 +15,9 @@ const door1 = document.getElementById('door1');
 const door2 = document.getElementById('door2');
 const door3 = document.getElementById('door3');
 const btn = document.querySelector('button');
+// counter elements
+const bestStreakEl = document.getElementById('best-streak');
+const currentStreakEl = document.getElementById('current-streak');
 
 const isBot = door => (door.src === robotDoor ? true : false);
 const isClicked = door => (door.src === closedDoor ? false : true);
@@ -24,8 +27,8 @@ let ranDoor2;
 let ranDoor3;
 let currentlyPlaying;
 let numClosedDoors;
-let currentStreak = 0;
-let bestStreak = 0;
+let currentStreakNum = 0;
+let bestStreakNum = 0;
 
 const gameBegin = () => {
     numClosedDoors = 3;
@@ -93,8 +96,17 @@ const gameOver = status => {
 
     if (status === 'win') {
         btn.textContent = 'You Win! Play Again!';
+        currentStreakNum++;
+        currentStreakEl.textContent = currentStreakNum;
+        bestStreakNum++;
+        // console.log(bestStreakEl.value);
+        if (bestStreakNum > +bestStreakEl.textContent)
+            bestStreakEl.textContent = bestStreakNum;
     } else {
         btn.textContent = 'Game over! Try Again!';
+        currentStreakNum = 0;
+        currentStreakEl.textContent = currentStreakNum;
+        bestStreakNum = 0;
     }
 };
 
@@ -102,5 +114,3 @@ const gameOver = status => {
 btn.addEventListener('click', () => {
     if (!currentlyPlaying) gameBegin();
 });
-
-// Counters

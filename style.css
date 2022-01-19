@@ -83,13 +83,14 @@ button {
     display: flex;
     flex-flow: column;
     align-items: center;
+    min-width: 205px;
 }
 
 p {
     padding: var(--padding1);
     font-size: 1.5rem;
     display: inline;
-    width: 184px;
+    width: 100%;
 }
 
 .counter {
