@@ -14,7 +14,14 @@ const spaceDoor =
 const door1 = document.getElementById('door1');
 const door2 = document.getElementById('door2');
 const door3 = document.getElementById('door3');
-const btn = document.querySelector('button');
+// const btn = document.querySelector('button');
+
+// btn elements
+const btnRules = document.getElementById('rules-btn');
+const btnRestart = document.getElementById('restart-btn');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+
 // counter elements
 const bestStreakEl = document.getElementById('best-streak');
 const currentStreakEl = document.getElementById('current-streak');
@@ -33,7 +40,7 @@ let bestStreakNum = 0;
 const gameBegin = () => {
     numClosedDoors = 3;
     currentlyPlaying = true;
-    btn.textContent = 'Good Luck!';
+    btnRestart.textContent = 'Good Luck!';
 
     door1.src = closedDoor;
     door2.src = closedDoor;
@@ -95,7 +102,7 @@ const gameOver = status => {
     currentlyPlaying = false;
 
     if (status === 'win') {
-        btn.textContent = 'You Win! Play Again!';
+        btnRestart.textContent = 'You Win! Play Again!';
         currentStreakNum++;
         currentStreakEl.textContent = currentStreakNum;
         bestStreakNum++;
@@ -103,7 +110,7 @@ const gameOver = status => {
         if (bestStreakNum > +bestStreakEl.textContent)
             bestStreakEl.textContent = bestStreakNum;
     } else {
-        btn.textContent = 'Game over! Try Again!';
+        btnRestart.textContent = 'Game over! Try Again!';
         currentStreakNum = 0;
         currentStreakEl.textContent = currentStreakNum;
         bestStreakNum = 0;
@@ -111,6 +118,19 @@ const gameOver = status => {
 };
 
 // restart game
-btn.addEventListener('click', () => {
+btnRestart.addEventListener('click', () => {
     if (!currentlyPlaying) gameBegin();
 });
+
+// modal rules
+btnRules.addEventListener('click', () => {
+    modal.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
+});
+
+const closeRules = () => {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+overlay.addEventListener('click', closeRules);

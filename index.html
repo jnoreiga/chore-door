@@ -6,6 +6,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chore Door</title>
         <link rel="stylesheet" href="style.css" />
+
+        <!-- <link rel="stylesheet" href="favicon_AC2.png" type="image/x-icon" />
+        <link rel="icon" href="favicon_AC2.png" type="image/x-icon" />
+        <meta name="author" content="Anthony Chavis" />
+        <meta
+            name="description"
+            content="To Score 100 First, Know When to Hold'em" />
+        <meta property="og: title" content="Pig Game" />
+        <meta
+            property="og:url"
+            content="https://anthonychavis.github.io/pig_game/" />
+        <meta
+            property="og:image"
+            content="https://raw.githubusercontent.com/anthonychavis/pig_game/main/pig-game1.jpg" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:description"
+            content="To Score 100 First, Know When to Hold'em" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="twitter:title" content="Pig Game" />
+        <meta property="twitter:description" content="Discover hidden places" />
+        <meta
+            property="twitter:image"
+            content="https://raw.githubusercontent.com/anthonychavis/pig_game/main/pig-game1.jpg" />
+        <meta property="twitter:card" content="summary_large_image" /> -->
+
         <script async src="script.js"></script>
     </head>
 
@@ -20,31 +48,68 @@
         </header>
 
         <main>
-            <h1>Instructions</h1>
-            <table>
-                <tr>
-                    <td>1</td>
-                    <td>Hiding behind one of these doors is the ChoreBot.</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>
-                        Your mission is to open all of the doors without running
-                        into the ChoreBot.
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>
-                        If you manage to avoid the ChoreBot until the very last
-                        door, you win!
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>See if you can score a winning streak!</td>
-                </tr>
-            </table>
+            <section class="big-screen">
+                <h1>Instructions</h1>
+                <table>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            Hiding behind one of these doors is the ChoreBot.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            Your mission is to open all of the doors without
+                            running into the ChoreBot.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            If you manage to avoid the ChoreBot until the very
+                            last door, you win!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>See if you can score a winning streak!</td>
+                    </tr>
+                </table>
+            </section>
+
+            <button id="rules-btn" class="mobile">How to Play</button>
+
+            <section id="mobile-rules" class="hidden modal">
+                <h1>Instructions</h1>
+                <table>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            Hiding behind one of these doors is the ChoreBot.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            Your mission is to open all of the doors without
+                            running into the ChoreBot.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            If you manage to avoid the ChoreBot until the very
+                            last door, you win!
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>See if you can score a winning streak!</td>
+                    </tr>
+                </table>
+            </section>
+            <div class="overlay hidden"></div>
 
             <section id="section1">
                 <figure class="door">
@@ -70,7 +135,7 @@
                 </figure>
             </section>
 
-            <button>Good luck!</button>
+            <button id="restart-btn">Good luck!</button>
 
             <section id="section2">
                 <div class="score">
