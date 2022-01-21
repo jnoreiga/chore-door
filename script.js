@@ -51,7 +51,7 @@ const gameBegin = () => {
     const theDoors = [];
 
     const thePush = arr => {
-        const newRan = Math.floor(Math.random() * arrDoors.length);
+        const newRan = Math.floor(Math.random() * arr.length);
         theDoors.push(arr.splice(newRan, 1));
     };
     thePush(arrDoors);
