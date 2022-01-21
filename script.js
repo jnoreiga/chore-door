@@ -58,16 +58,28 @@ const gameBegin = () => {
     thePush(arrDoors);
     thePush(arrDoors);
 
-    const ranNum = Math.floor(Math.random() * 3);
+    const ranNum = Math.floor(Math.random() * 6);
 
     if (ranNum === 0) {
         ranDoor1 = theDoors[0];
         ranDoor2 = theDoors[1];
         ranDoor3 = theDoors[2];
     } else if (ranNum === 1) {
+        ranDoor1 = theDoors[0];
+        ranDoor2 = theDoors[2];
+        ranDoor3 = theDoors[1];
+    } else if (ranNum === 2) {
         ranDoor1 = theDoors[1];
         ranDoor2 = theDoors[0];
         ranDoor3 = theDoors[2];
+    } else if (ranNum === 3) {
+        ranDoor1 = theDoors[1];
+        ranDoor2 = theDoors[2];
+        ranDoor3 = theDoors[0];
+    } else if (ranNum === 4) {
+        ranDoor1 = theDoors[2];
+        ranDoor2 = theDoors[0];
+        ranDoor3 = theDoors[1];
     } else {
         ranDoor1 = theDoors[2];
         ranDoor2 = theDoors[1];
