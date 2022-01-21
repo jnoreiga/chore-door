@@ -1,20 +1,17 @@
 'use strict';
 
+////////// reduce window pollution? //////////
+
 // door imgs
 const closedDoor =
     'https://content.codecademy.com/projects/chore-door/images/closed_door.svg';
 const robotDoor =
     'https://content.codecademy.com/projects/chore-door/images/robot.svg';
-const beachDoor =
-    'https://content.codecademy.com/projects/chore-door/images/beach.svg';
-const spaceDoor =
-    'https://content.codecademy.com/projects/chore-door/images/space.svg';
 
 // door elements
 const door1 = document.getElementById('door1');
 const door2 = document.getElementById('door2');
 const door3 = document.getElementById('door3');
-// const btn = document.querySelector('button');
 
 // btn elements
 const btnRules = document.getElementById('rules-btn');
@@ -26,7 +23,7 @@ const overlay = document.querySelector('.overlay');
 const bestStreakEl = document.getElementById('best-streak');
 const currentStreakEl = document.getElementById('current-streak');
 
-const isBot = door => (door.src === robotDoor ? true : false);
+// const isBot = door => (door.src === robotDoor ? true : false); [removed to reduce window pollution; only used in one location]
 const isClicked = door => (door.src === closedDoor ? false : true);
 
 let ranDoor1;
@@ -46,19 +43,35 @@ const gameBegin = () => {
     door2.src = closedDoor;
     door3.src = closedDoor;
 
+    const arrDoors = [
+        robotDoor,
+        'https://content.codecademy.com/projects/chore-door/images/beach.svg',
+        'https://content.codecademy.com/projects/chore-door/images/space.svg',
+    ];
+    const theDoors = [];
+
+    const thePush = arr => {
+        const newRan = Math.floor(Math.random() * arrDoors.length);
+        theDoors.push(arr.splice(newRan, 1));
+    };
+    thePush(arrDoors);
+    thePush(arrDoors);
+    thePush(arrDoors);
+
     const ranNum = Math.floor(Math.random() * 3);
+
     if (ranNum === 0) {
-        ranDoor1 = robotDoor;
-        ranDoor2 = beachDoor;
-        ranDoor3 = spaceDoor;
+        ranDoor1 = theDoors[0];
+        ranDoor2 = theDoors[1];
+        ranDoor3 = theDoors[2];
     } else if (ranNum === 1) {
-        ranDoor1 = beachDoor;
-        ranDoor2 = robotDoor;
-        ranDoor3 = spaceDoor;
+        ranDoor1 = theDoors[1];
+        ranDoor2 = theDoors[0];
+        ranDoor3 = theDoors[2];
     } else {
-        ranDoor1 = spaceDoor;
-        ranDoor2 = beachDoor;
-        ranDoor3 = robotDoor;
+        ranDoor1 = theDoors[2];
+        ranDoor2 = theDoors[1];
+        ranDoor3 = theDoors[0];
     }
 };
 gameBegin();
@@ -93,7 +106,8 @@ const playDoor = door => {
 
     if (numClosedDoors === 0) {
         gameOver('win');
-    } else if (isBot(door)) {
+        // } else if (isBot(door)) {
+    } else if (door.src === robotDoor) {
         gameOver();
     }
 };
