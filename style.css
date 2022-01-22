@@ -14,6 +14,9 @@
     /* PADDING */
     --padding1: 0.625rem;
     --door-padding: 1.5rem;
+
+    /* FONT */
+    --font-mobile: 1.125rem;
 }
 
 body {
@@ -139,6 +142,10 @@ p {
 }
 
 @media screen and (max-width: 481px) {
+    /* body {
+    font-size: 1.25rem;
+} */
+
     .big-screen {
         display: none;
     }
@@ -147,10 +154,44 @@ p {
         padding: 0 1rem;
     }
 
-    /* td:nth-child(odd) {
-        font-size: 1.65rem;
-    } */
     td:nth-child(even) {
         padding-left: 0.5rem;
+    }
+
+    #section1 {
+        display: flex;
+        flex-flow: wrap row;
+        justify-content: space-around;
+    }
+
+    #section1 figure {
+        padding: 0;
+        cursor: pointer;
+        margin: 0.15rem 0.5rem;
+        height: 190px;
+        width: auto;
+    }
+
+    .door img {
+        width: auto;
+        height: 100%;
+    }
+
+    #section2 {
+        padding: 0 0.5rem;
+    }
+
+    button {
+        font-size: var(--font-mobile);
+        margin: 0.5rem;
+    }
+
+    p {
+        font-size: var(--font-mobile);
+    }
+
+    .score {
+        margin: 0;
+        min-width: 180px;
     }
 }

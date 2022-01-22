@@ -17,10 +17,6 @@ const btnRestart = document.getElementById('restart-btn');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 
-// counter elements
-// const bestStreakEl = document.getElementById('best-streak');
-// const currentStreakEl = document.getElementById('current-streak');
-
 // const isBot = door => (door.src === robotDoor ? true : false); [removed to reduce window pollution; only used in one location]
 const isClicked = door => (door.src === closedDoor ? false : true);
 
