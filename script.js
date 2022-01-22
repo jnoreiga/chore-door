@@ -1,7 +1,5 @@
 'use strict';
 
-////////// reduce window pollution? //////////
-
 // door imgs
 const closedDoor =
     'https://content.codecademy.com/projects/chore-door/images/closed_door.svg';
@@ -20,8 +18,8 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 
 // counter elements
-const bestStreakEl = document.getElementById('best-streak');
-const currentStreakEl = document.getElementById('current-streak');
+// const bestStreakEl = document.getElementById('best-streak');
+// const currentStreakEl = document.getElementById('current-streak');
 
 // const isBot = door => (door.src === robotDoor ? true : false); [removed to reduce window pollution; only used in one location]
 const isClicked = door => (door.src === closedDoor ? false : true);
@@ -126,6 +124,9 @@ const playDoor = door => {
 
 const gameOver = status => {
     currentlyPlaying = false;
+
+    const bestStreakEl = document.getElementById('best-streak');
+    const currentStreakEl = document.getElementById('current-streak');
 
     if (status === 'win') {
         btnRestart.textContent = 'You Win! Play Again!';
