@@ -135,17 +135,13 @@ p {
     display: none;
 }
 
-@media screen and (min-width: 481.1px) {
+@media screen and (min-width: 481.1px) and (orientation: portrait) {
     .mobile {
         display: none;
     }
 }
 
 @media screen and (max-width: 481px) {
-    /* body {
-    font-size: 1.25rem;
-} */
-
     .big-screen {
         display: none;
     }
@@ -188,10 +184,80 @@ p {
 
     p {
         font-size: var(--font-mobile);
+        padding: 0;
     }
 
     .score {
         margin: 0;
         min-width: 180px;
+    }
+}
+
+@media screen and (max-width: 768.5px) and (orientation: landscape) {
+    .big-screen {
+        display: none;
+    }
+
+    table {
+        padding: 0 1rem;
+    }
+
+    td:nth-child(even) {
+        padding-left: 0.5rem;
+    }
+
+    #section1 {
+        display: flex;
+        flex-flow: wrap row;
+        justify-content: space-around;
+    }
+
+    #section1 figure {
+        padding: 0;
+        cursor: pointer;
+        margin: 0.15rem 0.5rem;
+        height: 190px;
+        width: auto;
+    }
+
+    .door img {
+        width: auto;
+        height: 100%;
+    }
+
+    #section2 {
+        padding: 0 0.5rem;
+        margin-right: 10vw;
+    }
+
+    button {
+        font-size: var(--font-mobile);
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    #restart-btn {
+        margin-left: 10vw;
+    }
+
+    p {
+        font-size: var(--font-mobile);
+        padding: 0;
+    }
+
+    .score {
+        margin: 0;
+        min-width: 180px;
+    }
+
+    .counter {
+        margin: 0.5rem auto;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .landscape {
+        display: flex;
+        justify-content: space-between;
     }
 }
